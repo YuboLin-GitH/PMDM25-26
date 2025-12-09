@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mis_Lugares</string>
+    <string name="mostrar">Mostrar Lugar</string>
+    <string name="preferencias">Preferencias</string>
+    <string name="Acerca_de">Acerca de </string>
+    <string name="Salir">Salir</string>
+</resources>

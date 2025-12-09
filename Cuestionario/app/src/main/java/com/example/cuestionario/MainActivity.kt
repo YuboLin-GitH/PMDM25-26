@@ -1,0 +1,29 @@
+package com.example.cuestionario
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        //Instancion unas preguntas
+        // Pregunta con respuesta String
+        var miPreguntaString= Pregunta<String>("Que se celebra el 1 de Noviembre","Angel",
+            Dificultad.BAJA)
+        //Pregunta de tipo Boolean
+        var miPreguntaBoolean = Pregunta<Boolean>("El 7 es numero primo", true, Dificultad.BAJA)
+        //Pregunta de tipo Aritmetico
+        var miPreguntaArtimetica = Pregunta<Int>("2+2", 4, Dificultad.BAJA)
+
+    }
+}

@@ -1,0 +1,17 @@
+# Android Studio/Gradle files to ignore
+.gradle/
+*/.gradle/
+*/build/
+*/.idea/
+*/local.properties
+# General compiled code
+*.class
+# Logs
+*.log
+# Android caches
+*/caches/
+# Android Debug Key
+debug.keystore
+# Keystore files
+*.jks
+*.keystore

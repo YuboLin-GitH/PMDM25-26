@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_enteros">
+        <item>2</item>
+        <item>6</item>
+        <item>66</item>
+        <item>54</item>
+        <item>78</item>
+    </array>
+    <array name="otro_array_entero">
+        <item>5</item>
+        <item>50</item>
+        <item>5000</item>
+        <item>500</item>
+    </array>
+
+    <array name="array_strings">
+        <item>Melon</item>
+        <item>Sandia</item>
+        <item>Melocoton</item>
+        <item>Pera</item>
+    </array>
+    
+    <array name="fondos_pantalla">
+        <item>@drawable/androidparty</item>
+        <item>@drawable/wp4470362_1440x2880_wallpapers</item>
+        <item>@drawable/wp4470363_1440x2880_wallpapers</item>
+        <item>@drawable/wp4470366_1440x2880_wallpapers</item>
+    </array>
+
+    <array name="colores">
+        <item>@color/azul</item>
+        <item>@color/black</item>
+        <item>@color/verde</item>
+    </array>
+
+    <array name="revoltijo">
+        <item>@array/array_enteros</item>
+        <item>@array/array_strings</item>
+        <item>@array/otro_array_entero</item>
+        <item>@array/fondos_pantalla</item>
+    </array>
+</resources>

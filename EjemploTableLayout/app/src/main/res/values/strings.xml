@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EjemploTableLayout</string>
+    <string name="table_layout_4_save_shortcut">texto4</string>
+    <string name="table_layout_4_save">texto3</string>
+    <string name="table_layout_4_open_shortcut">texto2</string>
+    <string name="table_layout_4_open">texto1</string>
+</resources>
