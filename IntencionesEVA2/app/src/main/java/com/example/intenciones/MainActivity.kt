@@ -1,15 +1,15 @@
 package com.example.intenciones
 
-import android.Manifest
+
 import android.content.Intent
-import android.content.pm.PackageManager
+
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -62,13 +62,13 @@ class MainActivity : AppCompatActivity() {
         //ejecicio 9
 
         btLlamar.setOnClickListener {
-            btLlamar.setOnClickListener {
-                val dialIntent = Intent(
-                    Intent.ACTION_DIAL, // 注意：改为 ACTION_DIAL
-                    Uri.parse("tel:983454554")
-                )
-                startActivity(dialIntent)
-            }
+
+            val dialIntent = Intent(
+                Intent.ACTION_DIAL,
+                Uri.parse("tel:983454554")
+            )
+            startActivity(dialIntent)
+
         }
 
         // ejercicio 10
