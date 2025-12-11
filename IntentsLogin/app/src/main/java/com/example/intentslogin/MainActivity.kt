@@ -1,6 +1,5 @@
-package com.example.actividad_intents_explicitas
+package com.example.intentslogin
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +7,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,21 +22,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat.startActivity
-import com.example.actividad_intents_explicitas.ui.theme.ActividadIntentsExplicitasTheme
+import com.example.intentslogin.ui.theme.IntentsLoginTheme
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ActividadIntentsExplicitasTheme {
-                Scaffold(modifier = Modifier.fillMaxSize().background(Color.Cyan)) { innerPadding ->
+            IntentsLoginTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
@@ -51,34 +44,35 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    val contexto = LocalContext.current
-    var valor_text by remember { mutableStateOf("") }
-    Box(modifier= modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+    var valor_nombre by remember { mutableStateOf("") }
+    var valor_password by remember { mutableStateOf("") }
+    Box(modifier=modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+
         Column {
-            TextField(value = valor_text,
-                onValueChange = {valor_text = it},
-                label = {Text("Nombre")})
-            Button(onClick = {
-                val intent = Intent(contexto, SegundadActividad::class.java)
-                intent.putExtra("nombre",valor_text)
-                intent.putExtra("edad",44)
-                contexto.startActivity(intent)
-            }, modifier= modifier.padding(top = 8.dp)) {
-                Text(
-                    text = "Hello $name!",
-                    modifier = modifier
-                )
+            Text(
+                text = "Hello $name!",
+                modifier = modifier
+            )
+            TextField(value = valor_nombre, onValueChange = { valor_nombre = it}, label = {Text("Nombre")})
+            TextField(value = valor_password, onValueChange = { valor_password = it}, label = {Text("Password")})
+            val result = remember { mutableStateOf<Bitmap?>(null) }
+            val launcher =
+                rememberLauncherForActivityResult(ActivityResultContracts.TakePicturePreview()) {
+                    result.value = it
+                }
+            Button(onClick = { launcher.launch() }) { Text(text = "Entrar") }
+
+            result.value?.let { image ->
+                Image(image.asImageBitmap(), null, modifier = Modifier.fillMaxWidth())
             }
         }
     }
-
-
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ActividadIntentsExplicitasTheme {
+    IntentsLoginTheme {
         Greeting("Android")
     }
 }
