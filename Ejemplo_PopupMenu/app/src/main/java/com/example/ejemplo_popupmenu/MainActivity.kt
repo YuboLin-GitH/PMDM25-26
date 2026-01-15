@@ -2,7 +2,6 @@ package com.example.ejemplo_popupmenu
 
 import android.os.Bundle
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -11,23 +10,25 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+
 import androidx.compose.ui.Modifier
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.MailOutline
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.material3.TopAppBar
+
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.ejemplo_popupmenu.ui.theme.Ejemplo_PopupMenuTheme
 
 
@@ -38,9 +39,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Ejemplo_PopupMenuTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    GmailPopupMenu(
-                        modificador = Modifier.padding(innerPadding)
+                Scaffold(
+                    topBar = {
+                        MiTopBar(modifier = Modifier, onclic_opcion = { text ->
+                                Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+                            }
+                        )
+                    },
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+                    Text(
+                        text = "Contenido de la app",
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
@@ -48,42 +58,29 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
-fun GmailPopupMenu(modificador: Modifier = Modifier) {
-    val context = LocalContext.current
-
-    var expanded by remember { mutableStateOf(false) }
-
-    Box(
-        modifier = modificador.fillMaxSize()
-            .wrapContentSize(Alignment.TopEnd)
-    ) {
-        androidx.compose.foundation.layout.Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text("menu esta aqui")
+fun GmailPopupMenu( click_opcion: (String)-> Unit) {
 
 
-            Spacer(modifier = Modifier.width(8.dp))
+    var menu_expanded by remember { mutableStateOf(false) }
 
-            IconButton(onClick = { expanded = true }) {
-                Icon(
-                    imageVector = Icons.Default.MoreVert,
-                    contentDescription = "Opciones"
-                )
-            }
+
+    Box {
+        IconButton(onClick = { menu_expanded = true }) {
+            Icon(Icons.Default.MoreVert, contentDescription = "Opciones")
         }
-
         DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
+            expanded = menu_expanded,
+            onDismissRequest = { menu_expanded = false }
         ) {
 
             DropdownMenuItem(
+
                 text = { Text("Responder a todos") },
                 onClick = {
-                    expanded = false
-                    Toast.makeText(context, "Responder a todos", Toast.LENGTH_SHORT).show()
+                    menu_expanded = false
+                    click_opcion("Responder a todos")
                 }
             )
 
@@ -91,45 +88,67 @@ fun GmailPopupMenu(modificador: Modifier = Modifier) {
             DropdownMenuItem(
                 text = { Text("Reenviar") },
                 onClick = {
-                    expanded = false
-                    Toast.makeText(context, "Reenviar", Toast.LENGTH_SHORT).show()
+                    menu_expanded = false
+                    click_opcion("Reenviar")
                 }
             )
 
             DropdownMenuItem(
                 text = { Text("Destacar") },
                 onClick = {
-                    expanded = false
-                    Toast.makeText(context, "Destacar", Toast.LENGTH_SHORT).show()
+                    menu_expanded = false
+                    click_opcion("Destacar")
                 }
             )
 
             DropdownMenuItem(
                 text = { Text("Imprimir") },
                 onClick = {
-                    expanded = false
-                    Toast.makeText(context, "Imprimir", Toast.LENGTH_SHORT).show()
+                    menu_expanded = false
+                    click_opcion("Imprimir")
                 }
             )
 
             DropdownMenuItem(
                 text = { Text("Marcar los mensajes como no leídos d..") },
                 onClick = {
-                    expanded = false
-                    Toast.makeText(context, "Marcar los mensajes como no leídos d..", Toast.LENGTH_SHORT).show()
+                    menu_expanded = false
+                    click_opcion("Marcar los mensajes como no leídos d..")
                 }
             )
             DropdownMenuItem(
                 text = { Text("Bloquear a Diego de OpenWebinars") },
                 onClick = {
-                    expanded = false
-                    Toast.makeText(context, "Bloquear a Diego de OpenWebinars", Toast.LENGTH_SHORT).show()
+                    menu_expanded = false
+                    click_opcion("Bloquear a Diego de OpenWebinars")
                 }
             )
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MiTopBar(modifier: Modifier, onclic_opcion:(String)->Unit){
+    TopAppBar(title = {},
+        navigationIcon = {
+            IconButton(onClick = {/*todo*/}) {
+                Icon(imageVector = Icons.Default.ArrowBack,contentDescription = "Volver atrás") }
+        }, actions = {
+            IconButton(onClick = {}) {
+                Icon(painter = painterResource(R.drawable.carpeta_flecha),contentDescription = "Perfil de usuario")
+            }
+            IconButton(onClick = {}) {
+                Icon(imageVector = Icons.Default.Delete,contentDescription = "Eliminal")
+            }
+            IconButton(onClick = {}) {
+                Icon(imageVector = Icons.Default.MailOutline,contentDescription = "email")
+            }
+            GmailPopupMenu (click_opcion = onclic_opcion )
+
+        }
+    )
+}
 
 
 
@@ -138,6 +157,6 @@ fun GmailPopupMenu(modificador: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     Ejemplo_PopupMenuTheme {
-        GmailPopupMenu()
+        MiTopBar(modifier= Modifier){}
     }
 }

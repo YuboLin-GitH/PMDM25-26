@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2009372f-3dc8-496c-97a1-9de2818fa4f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IntencionesEVA2/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntentsLogin/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/IntentsLogin/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,37 +18,37 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "YuboLin-GitH"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YuboLin-GitH&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/YuboLin-GitH/PMDM25-26.git",
-    "accountId": "a8f61ce1-32c9-4174-a949-d2d7e80c46ed"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/YuboLin-GitH/PMDM25-26.git&quot;,
+    &quot;accountId&quot;: &quot;a8f61ce1-32c9-4174-a949-d2d7e80c46ed&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="36fZzE8pXNX85JykHQQ4G1Q4Kha" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2009372f-3dc8-496c-97a1-9de2818fa4f8" name="Changes" comment="" />
